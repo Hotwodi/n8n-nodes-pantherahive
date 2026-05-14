@@ -356,7 +356,7 @@ export class PantheraHive implements INodeType {
       try {
         // ── User: Authenticate ─────────────────────────────────────────────
         if (resource === 'user' && operation === 'authenticate') {
-          responseData = (await this.helpers.request({
+          responseData = (await this.helpers.httpRequest({
             method: 'POST',
             url: `${baseUrl}/api/make/authenticate`,
             headers,
@@ -370,7 +370,7 @@ export class PantheraHive implements INodeType {
           const userId = this.getNodeParameter('walletUserId', i) as string;
           if (!userId) throw new NodeOperationError(this.getNode(), 'User ID is required', { itemIndex: i });
 
-          responseData = (await this.helpers.request({
+          responseData = (await this.helpers.httpRequest({
             method: 'GET',
             url: `${baseUrl}/api/make/wallet/balance`,
             headers,
@@ -385,7 +385,7 @@ export class PantheraHive implements INodeType {
           const initialBalance = this.getNodeParameter('initialBalance', i) as number;
           if (!userId) throw new NodeOperationError(this.getNode(), 'User ID is required', { itemIndex: i });
 
-          responseData = (await this.helpers.request({
+          responseData = (await this.helpers.httpRequest({
             method: 'POST',
             url: `${baseUrl}/api/make/wallet/create`,
             headers,
@@ -404,7 +404,7 @@ export class PantheraHive implements INodeType {
           if (!userId) throw new NodeOperationError(this.getNode(), 'User ID is required', { itemIndex: i });
           if (!amount || amount < 1) throw new NodeOperationError(this.getNode(), 'Credits to deduct must be at least 1', { itemIndex: i });
 
-          responseData = (await this.helpers.request({
+          responseData = (await this.helpers.httpRequest({
             method: 'POST',
             url: `${baseUrl}/api/make/wallet/deduct`,
             headers,
@@ -428,7 +428,7 @@ export class PantheraHive implements INodeType {
             throw new NodeOperationError(this.getNode(), 'Inputs must be valid JSON', { itemIndex: i });
           }
 
-          responseData = (await this.helpers.request({
+          responseData = (await this.helpers.httpRequest({
             method: 'POST',
             url: `${baseUrl}/api/make/execute-workflow`,
             headers,
@@ -442,7 +442,7 @@ export class PantheraHive implements INodeType {
           const runId = this.getNodeParameter('runId', i) as string;
           if (!runId) throw new NodeOperationError(this.getNode(), 'Run ID is required', { itemIndex: i });
 
-          responseData = (await this.helpers.request({
+          responseData = (await this.helpers.httpRequest({
             method: 'GET',
             url: `${baseUrl}/api/make/workflow-status/${encodeURIComponent(runId)}`,
             headers,
@@ -460,7 +460,7 @@ export class PantheraHive implements INodeType {
 
           if (!prompt) throw new NodeOperationError(this.getNode(), 'Prompt is required', { itemIndex: i });
 
-          responseData = (await this.helpers.request({
+          responseData = (await this.helpers.httpRequest({
             method: 'POST',
             url: `${baseUrl}/api/make/model/run`,
             headers,
