@@ -1,11 +1,3 @@
-# n8n-nodes-pantherahive
-
-[![npm version](https://badge.fury.io/js/n8n-nodes-pantherahive.svg)](https://www.npmjs.com/package/n8n-nodes-pantherahive)
-
-[n8n](https://n8n.io) community nodes for **[PantheraHive](https://pantherahive.com)** — an AI workflow automation platform with built-in credit wallet management.
-
----
-
 ## Nodes
 
 ### PantheraHive
