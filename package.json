@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-pantherahive",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "n8n community nodes for PantheraHive \u00e2\u20ac\u201d AI workflow automation, wallet credit management, and model execution",
   "keywords": [
     "n8n-community-node-package"
