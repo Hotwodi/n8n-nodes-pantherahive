@@ -33,7 +33,5 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Publish with provenance
+      - name: Publish with provenance (OIDC trusted publishing)
         run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
